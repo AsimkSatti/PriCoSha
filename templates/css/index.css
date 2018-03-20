@@ -1,0 +1,28 @@
+﻿*{
+color: red;
+	}
+
+body{
+	margin:43%;
+}
+
+a{
+color: white;
+display: initial;
+}
+
+a:hover{
+color: #112222;
+}
+
+body{
+ text-align: center;
+}
+
+a:hover{
+color:#111122;
+}
+
+a:visited:hover{
+color: white
+}

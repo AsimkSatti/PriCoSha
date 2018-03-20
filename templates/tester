@@ -1,0 +1,115 @@
+<html>
+<head><style>
+			@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+		</style> 
+<style type="text/css">
+ *{background-color: #ffffff;padding: 0px; margin: 0px;}
+	table, th, td{
+		borde;r: 1px solid black;
+	}table{background-color: #68d89e; opacity: 0.8; margin-left: 30px;}
+	h1{margin-left: 47%;margin-right: 30%; background-color: #111111;font-family: 'Poiret One', cursive;} header{margin-bottom: 5%;width: 100%; background-color: #111111;color: white; }
+	input[type="text"]{margin-left: 36% ;width:500px; height: 80px; background-color:rgba(127, 239, 183, 0.39)); }
+	input[type="submit"]{margin-left: 50% ;width:75px; height: 40px; background-color:rgba(127, 239, 183, 0.39)); }
+	.button{background-color: #68d89e; border-radius: 25px;}form{background-color: #111111;}.humn{background-color: #68d89e;}a{background-color: #111111 ;color: white; text-decoration: none;}.lout{margin-left: 10px; padding-right: 10px;} a:hover{ text-decoration: none;color:#F2CB3F;width: 100% ;}.ooiy{border: 1px solid black;color:white;padding: 3px; width:30px;border-radius: 20px;background-color: #111111;}.ooiy:hover{background-color:rgba(214, 214, 214, 0.45);}.ooiy:active{background-color: white;color:#111111;}table{margin-bottom: 30px;}.men{ margin-left: 80%; width: 300px;}.un{margin-left: -10px;display: inline-block;}h2{font-family: 'Poiret One', cursive;background-color:#68d89e; width: 125px; } h3{color: #111111;display: inline-block;   }
+</style>
+</head>
+<body>
+<header>
+
+	<a href="/logout" class="lout">Logout</a>
+	<a href="/seegroup" class="lout">Your Friend Groups</a>
+	<a href="/yournotice">Notifications</a>
+	<form action="/post" method="POST">
+		<h1 >Welcome {{username}}</h1> 
+		<input type="text" name = "blog" placeholder="post" required/> </br>
+		<input class="un" type="submit" value = Post />
+	</form>
+</header>
+<form name='humn' class='men' action="/tag" method="POST">
+	<h2> Tag </h2><h3 >Which tag      </h3><h3 >/Who </h3></br>
+	<select name='vute' width='60px'>
+	{% for line in itchi %}
+			  <option value='{{line.id}}'>{{line.id}}</option>
+		{% endfor %}</select>
+	<select name='humn' width='60px'>
+
+		
+
+
+
+			{% for line in people %}
+			  <option value='{{line.username}}'>{{line.username}}</option>
+			{% endfor %}
+	</select>
+				<input type="submit" value = tag />
+	</form>
+
+<table width="1450px" height="200px" >
+	<th >ID</th>
+	<th >Time</th>
+		<!-- <p height="200px" width="300px">{{time_date}}</p> -->
+	<th>Post</th>
+	<th>People Tagged</th>
+		<!-- <p >{{Name}}</p> -->
+
+{% for line in posts %}
+	<tr>
+<!-- <td width="200px" height="150px">{{time}}</td> -->
+	<td width="5%" name="date" height="150px"> {{line.IXd}	</td><td width="45%" name="date" height="150px"> {{line.item_date}} </td> <td width="45%" name='contnt' height="150px">{{line.name}}</td><td width="5%" name="date" height="150px">{% for line in itchi %}{{line.firstname}} {{line.lastname}}{% endfor %}</td>
+
+
+<!-- <form name='humn' action="/tag" method="POST"> -->
+
+</td>
+	</tr> 
+
+{% endfor %}
+</table>
+
+
+</body>
+<script type="text/javascript">
+	function open(){
+		 alert("Hi")
+
+	}
+         </script>
+
+
+
+</html>
+
+
+
+
+
+
+app.route('/home', methods=['GET', 'POST'])
+def home():
+	username = session['username']
+	cursor = conn.cursor();
+	pquery = 'SELECT item_date,name,id FROM content WHERE poster_username = %s ORDER BY item_date DESC;'
+
+	cursor.execute(pquery,(username))
+
+	data = cursor.fetchall()
+	cursor.close()
+
+	cursor = conn.cursor();
+	ppquery="SELECT * FROM person "
+
+
+	cursor.execute(ppquery)
+	data1=cursor.fetchall()
+	cursor.close()
+
+
+
+	cursor = conn.cursor();
+	idss="SELECT * FROM content NATURAL JOIN tag NATURAL JOIN person WHERE tagee=username"
+	cursor.execute(idss)
+	data2=cursor.fetchall()
+	cursor.close()
+
+
+	return render_template('home.html', username=username, posts=data, people=data1,itchi=data2)

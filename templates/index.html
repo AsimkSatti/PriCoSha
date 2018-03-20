@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+		</style> 
+
+
+<style type="text/css">*{margin: 0px;padding:0px; }
+.top{position: center;font-family: 'Poiret One', cursive;
+	text-decoration: none;
+	
+display: inline-block; 
+	font-size:80px; 
+	color:white;padding: 150px 670px 150px 670px ;
+	background-color: #111111;
+}
+.top:hover{color:#68d89e; background-color: #131313;}
+.bottom{position: center;text-decoration: none;
+	background:#68d89e;display: inline-block; font-family: 'Poiret One', cursive;
+	font-size:80px; padding: 150px 635px 150px 635px ;
+	color:white;background-color: #61ce95;
+	
+}	.bottom:hover{color:black;}
+</style>
+</head>
+
+<body>
+{% if not message %}
+	<a class="top" href="/login">Login</a>
+	<a class="bottom" href="/register">Register</a>
+{% endif %}
+
+{% if message %}
+	<a href="/logout">Logout</a>
+	<a href="/remove_account">Remove Account</a>
+	<p class="message">You are logged in {{message}}. You have {{num}} follower(s)</p> </br>
+	<a href="/tweets">View your tweets</a> </br>
+	<a href="/find_people">Find people to follow</a> </br>
+	<a href="/unfollow">Unfollow someone</a> </br>
+	<a href="/view_followed">View people you have followed</a> </br>
+	</br>
+
+        <h4>15 most recent tweets from you and your followers </h4> </br>
+
+	{% for line in tweets%}
+	        <p>{{line}}</p>
+	        <hr>
+	{% endfor %}
+	{% endif %}
+</body>
+
+</html>

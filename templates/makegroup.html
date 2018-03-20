@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>makeagroup</title><style>
+			@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+		</style> 
+	<style type="text/css">
+	*{
+		background-color: #ffffff;
+		}*{margin: 0px;padding:0px; }
+	h1{color:  #68d89e;font-size: 50px;position: center;font-family: 'Poiret One', cursive;margin-left: 47%;margin-bottom: 7%;}
+
+	input{width: 80%;height:80px;background-color: #68d89e;opacity: 0.2 color: white;margin-left: 10%; }
+
+	</style>
+</head>
+<body>
+<h1>PriCoShia</h1>
+
+<form action="/makegroup" method="POST">
+	<input type="text" name = "title" placeholder="Name of Group" required/> </br>
+
+	</br>
+	<input type="text" name = "fuser1" placeholder="Username" required/> </br>
+	<input type="text" name = "fuser2" placeholder="Username" /></br>
+	<input type="text" name = "fuser3" placeholder="Username" /></br>
+	<input type="submit" value = Create />
+
+</form>{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+<a href="/back">Go back</a>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wakarimasen</title>
+	<style type="text/css">*{
+	margin: 0px;
+	padding:0px;
+}
+
+.container{
+	width: 100%;
+}
+
+.top{
+	background: linear-gradient(to bottom right,#e74c3c  ,#f96353);
+	height:100px;
+	/*background-color: #d35400;*/
+	width: 100%;
+	text-align: left;
+	transition: 5s;
+	padding-bottom: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1{
+	padding-top: 30px;
+	color: white;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 40px;
+	margin-left: 41%;
+}
+h2{
+	padding-top: 10px;
+	color: white;
+	font-family: 'Libre Barcode 39 Extended Text', cursive;
+	font-size: 40px;
+	margin-left: 46%;
+}
+/*.top:hover{
+	background-color: #e74c3c ;
+
+	transition-delay: 3s;
+	transition: 5s;
+}*/
+form{
+	margin: 10px;
+}
+
+.bottom{
+
+	margin-top: 65px;
+	text-align: center;
+	padding-left: 3%;
+	font-family: 'Exo', sans-serif;
+
+}
+input{
+	margin-left: 5px;
+	width: 225px;
+	height: 25px;
+	display: block;
+	margin-bottom: 10px;
+}
+.info{
+	display: inline;
+	width:400px;
+}
+img{
+	margin-left: 5px;
+	display: inline;
+}
+textarea{
+	background-color: #f9f9f9;
+	margin-left:30%; 
+	width: 50%;
+	height: 200px;
+	/*margin-left: 40%;*/
+	display: inline;
+}</style>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>  
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+</style> 
+<style>
+@import url('https://fonts.googleapis.com/css?family=Exo');
+</style> 
+</head>
+<body>
+	<div class="container">
+		<div class="top"> 
+			<div class="caller">
+				<h1 id="titles" lang='ar' lang='ja'> WAKARIMASU</h1>
+					
+
+			</div>
+
+		</div>
+  <form action="/post" method="POST" enctype="multipart/form-data">
+  <div class='info'>
+  <input  type='file' name="user_direc" onchange="readURL(this);" />
+    <img id="blah"  src="#" name="imagex" alt="your image" />
+   <input type="submit" value = Translate /></form>
+   </div>
+    <textarea placeholder="Your Translation Will Appear Here" rows="4" cols="50">{{text}}</textarea> 
+
+	</div>
+
+	<div class="bottom">Created By Asim Satti</div>
+</body>
+<script type="text/javascript"> 
+var lux=document.getElementById("titles");
+		var logo=document.getElementById("titles");
+
+	     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(250)
+                        .height(433);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+var loc="moveit";
+function moveit(lux){
+	
+	if(loc=="moveit"){
+		TweenLite.to(logo, 0.2, {top:290});
+
+		loc="back";
+	}
+	else{
+
+		TweenLite.to(logo, 0.2, {top:90});
+		loc="moveit";
+
+	}
+}
+
+
+
+
+	var text_tracker="first";
+
+
+	function change1(){
+		if (text_tracker=="first"){
+
+			document.getElementById("titles").innerHTML = "أنا لا أفهم"
+			document.getElementById("titles").style.fontSize="400%";
+
+			text_tracker="second";
+		}
+		
+
+		 else if(text_tracker=="second") {
+		 	document.getElementById("titles").innerHTML = "わかりません"
+		 	document.getElementById("titles").style.fontSize="300%";
+		 	text_tracker="third";
+		 }
+		 else{
+		 	document.getElementById("titles").innerHTML = "I Don't Understand"
+		 	document.getElementById("titles").style.fontSize="240%";
+		 	text_tracker="first";
+		 }
+		
+	}
+
+        setInterval("change1();",5000);
+        setInterval("moveit();",2000);
+
+
+</script>
+
+      
+
+</html>

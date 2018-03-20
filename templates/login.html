@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>login</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">	<style>
+		
+			@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+		</style> 
+<style type="text/css">
+	
+	*{margin: 0px;padding:0px; }
+	h1{display: inline;color:  #68d89e;padding-left: 43%;display: inline-block; padding-bottom:40px;padding-top: 20px; font-size: 40;position: center;font-family: 'Poiret One', cursive;width: 57%; background-color:  #111111;} input{margin-left: 40px; background-color:  #161616;font-family: 'Poiret One', cursive;color: white;padding:20px;}form{margin-left: 25%;}.oop{width: 500px;}p{font-family: 'Poiret One', cursive;} a{display: inline-block;margin:0px;font-family: 'Poiret One', cursive;color: white;width: 100% ; text-decoration: none;background-color:  #111111;}a:hover{ text-decoration: none;color:#F2CB3F;width: 100% ;}a:visited{
+		color:white;width: 100% ; 
+	}
+
+a:visited:hover{
+		color:#F2CB3F;
+	}
+
+</style>
+
+</head><a href="/">Go back</a>
+<body> <h1>PriCoShia</h1>
+<form action="/loginAuth" method="POST">
+	<p>Username </p> <input class="oop" type="text" name = "username" height="40px" width="145px" placeholder="username" required/> </br>
+	<p>Password </p>  <input class='oop' type="password" name = "password" placeholder="password" required/></br>
+	<input type="submit" value = Login />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,57 @@
+<html>
+<head>		<style>
+			@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+		</style> <style type="text/css">
+ *{background-color: white;padding: 0px; margin: 0px;}
+	table, th, td{
+		border: 0px solid black;
+	}
+	.cg{display: inline-block;padding-right: : 1530px;background-color: #111111;}h1{position: center;}
+    .groupo:hover{	color:#a0b2df;
+	z-index: 200;
+
+	opacity:0.01;
+	transition: opacity 3s;
+	transition-delay: 1s;
+}	.into{padding-right: 10px;}
+p{opacity: 0.4;}h1{font-family: 'Poiret One', cursive;padding-top: 1%;padding-bottom: 2%; padding-left: 45%; margin-top: -20px; padding-right: 20%; background-color: #111111;color: #68d89e;}
+table{margin-top: 4%;  background-color: #68d89e; opacity: 0.8; margin-left: 30px;}a{margin:0px;display: inline-block;font-family: 'Poiret One', cursive;color: white; text-decoration: none;background-color:  #111111;}a:hover{background-color:  #111111;text-decoration: none; color:#68d89e} tr{margin-left: 15px;}form{margin-left: 50px;}
+</style>
+</head>
+<body><a class="into" href="/back">Go Back</a><a href="/makegroup" class="cg">Create A friend Group</a>
+<form action="/post" method="POST">
+
+	<h1>Welcome {{username}}</h1>
+</form>
+
+<h2>Tags that Need Approving</h2>
+
+<table width="1000px" height="200px" >
+	<th >ID </th>
+	<th >Tagged you </th>
+	<th >Post</th>
+		<!-- <p height="200px" width="300px">{{time_date}}</p> -->
+
+
+	
+{% for line in tert %}<tr>
+<!-- <form name='humn' action="/tag" method="POST"> -->
+<td width="5%" name="date" height="150px"> {{line.ID}}</td><td width="5%" name="date" height="150px"> {{line.poster_username}}</td><td width="45%" name="date" height="150px"> {{line.Name}} </td> 
+ {% endfor %}
+	</tr> 
+
+
+</table>
+<form class='men' action="/decider" method="POST">
+<select name='vuo' width='60px'>
+	{% for line in tert %}
+			  <option value='{{line.ID}}'>{{line.ID}}</option>
+		{% endfor %}</select>
+	<input id="checkBox" name='sino' type="checkbox" checked="1">
+	<input class="un" type="submit" value = Post />
+
+</form>
+</body>
+
+
+</html>

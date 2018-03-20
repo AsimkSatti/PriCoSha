@@ -1,0 +1,58 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+
+.container{
+	width: 1200px;
+}
+
+.top{
+	height:100px;
+	background-color: #43c2db;
+	width: 120%;
+	padding-bottom: 20px;
+
+}
+
+h1{
+	padding-top: 30px;
+	color: white;
+	font-family: 'Julius Sans One', sans-serif;
+	font-size: 70px;
+	margin-left: 38%;
+}
+h2{
+
+	padding-top: 10px;
+	color: white;
+	font-family: 'Libre Barcode 39 Extended Text', cursive;
+	font-size: 40px;
+	margin-left: 46%;
+}
+.top:hover{
+	background-color: #1d1e1d;
+	color: #0aff47;
+}
+
+h1:hover{
+	color: #0aff47;
+}
+input{
+	margin-left: 5px;
+	width: 225px;
+	height: 25px;
+	display: block;
+	margin-bottom: 10px;
+}
+img{
+	margin-left: 5px;
+	display: inline;
+}
+textarea{
+	background-color: #f9f9f9;
+	width: 750px;
+	height: 400px;
+	/*margin-left: 40%;*/
+	display: inline;
+}

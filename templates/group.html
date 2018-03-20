@@ -1,0 +1,48 @@
+<html>
+<head>		<style>
+			@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+		</style> <style type="text/css">
+ *{background-color: white;padding: 0px; margin: 0px;}
+	table, th, td{
+		border: 0px solid black;
+	}
+	.cg{display: inline-block;padding-right: : 1530px;background-color: #111111;}h1{position: center;}
+    .groupo:hover{	color:#a0b2df;
+	z-index: 200;
+
+	opacity:0.01;
+	transition: opacity 3s;
+	transition-delay: 1s;
+}	.into{padding-right: 10px;}
+p{opacity: 0.4;}h1{font-family: 'Poiret One', cursive;padding-top: 1%;padding-bottom: 2%; padding-left: 45%; margin-top: -20px; padding-right: 20%; background-color: #111111;color: #68d89e;}
+td:hover,p:hover{opacity: 1;transition: opacity .1s;
+	transition-delay: 0.2s;}a{margin:0px;display: inline-block;font-family: 'Poiret One', cursive;color: white; text-decoration: none;background-color:  #111111;}a:hover{background-color:  #111111;text-decoration: none; color:#68d89e} tr{margin-left: 15px;}
+</style>
+</head>
+<body><a class="into" href="/back">Go Back</a><a href="/makegroup" class="cg">Create A friend Group</a>
+<form action="/post" method="POST">
+	<h1>Welcome {{username}}</h1> 
+</form>
+
+
+
+<table width="100%" height="100px">
+	<th >Your Friend Groups: </th>
+
+		<!-- <p >{{Name}}</p> -->
+
+{% for line in group %}
+	<tr>
+
+		<td width="200px" height="150px">{{line.name}}<p>Owner: {{line.owner}}</p></td>
+	</tr>
+{% endfor %}
+</table>
+
+
+
+
+</body>
+
+
+</html>
